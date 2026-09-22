@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS payment;
+
+CREATE TABLE IF NOT EXISTS payment (
+    id SERIAL PRIMARY KEY,
+    booking_id VARCHAR(50) NOT NULL,
+    amount_pence INTEGER NOT NULL,
+    status VARCHAR(20) DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,0 +1,36 @@
+{
+  "services": {
+    "auth": {
+      "queues": ["registration"]
+    },
+    "booking": {
+      "queues": ["booking"]
+    },
+    "customer": {
+      "queues": ["registration", "new_customer"]
+    },
+    "email": {
+      "queues": ["new_customer"]
+    },
+    "logging": {
+      "queues": [],
+      "db_engine": "dynamodb",
+      "dynamodb_key": "ID"
+    },
+    "payment": {
+      "queues": ["payment"]
+    },
+    "room": {
+      "queues": []
+    },
+    "weather": {
+      "queues": []
+    }
+  },
+  "queues": {
+      "booking": {},
+      "new_customer": {},
+      "payment": {},
+      "registration": {}
+  }
+}

@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS password (
+    email VARCHAR(100) PRIMARY KEY,
+	hash VARCHAR(255) NOT NULL,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS attempt (
+	id SERIAL PRIMARY KEY,
+	email VARCHAR(255) NOT NULL,
+	success BOOLEAN NOT NULL,
+	ip_address INET,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+	
+CREATE INDEX IF NOT EXISTS idx_password_email ON password(email);
+CREATE INDEX IF NOT EXISTS idx_auth_attempts_email ON attempt(email);
